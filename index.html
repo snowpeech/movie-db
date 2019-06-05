@@ -2,16 +2,33 @@
 <html>
 	<head>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="style.css">
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.4.0.js" integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo=" crossorigin="anonymous"></script>
 	</head>
 	<body>
-        <div></div>
+        
+
+        <div class="card bg-dark">
+            <a href = "https://www.themoviedb.org/movie/420817-aladdin?language=en-US">
+                <img class="card-img" src="EX2.png" alt="Card image">
+                <div class="card-img-overlay">
+                    <h5 class="card-title">Replace with movie title</h5>
+                    <p class="card-text">Add description?.</p>    
+                </div>
+            </a>
+        </div>
+
+        <div id="movieCards"></div>
+
+
+
 	</body>
 
 	<script>
+        var movieCards = document.getElementById("movieCards");
         var apiKey = 'b6f68141a214aea8a4584e1ebb8927cb';
 
 		$(document).ready(function(){
@@ -28,8 +45,25 @@
 
         $.ajax(settings).done(function (response) {
             for(var i=0; i<10; i++){
-                console.dir(response[i]);  //top 10 movies. note, it's still loading all 41k results
+                console.dir(response.results[i]);  //top 10 movies. note, it's still loading all 41k results
+                var movId = response.results[i].id;
+                var movTitle = response.results[i].original_title;
+                var movPic = response.results[i].poster_path;
+                var movDesc = response.results[i].overview;
+                createCard(movId, movTitle, movPic, movDesc);
             }
         });
+
+        function createCard(Id, Title, Pic, Desc){
+            var card = document.createElement("DIV");
+            card.classList ="card";
+            card.innerHTML = `<a href = "https://www.themoviedb.org/movie/${Id}">
+            <img class="card-img" src="https://image.tmdb.org/t/p/w500/${Pic}" alt="movie poster image">
+            <div class="card-img-overlay">
+                <h5 class="card-title">${Title}</h5>
+                <p class="card-text">${Desc}</p>    
+            </div> </a>`;
+            movieCards.appendChild(card);
+        }
 	</script>
 </html>
