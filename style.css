@@ -1,5 +1,6 @@
 .card {
-    min-width: 25%;
+    min-width: 15%;
+    max-width: 25%;
     margin:10px;
 }
 
@@ -27,6 +28,7 @@
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
+  background-color: lightgrey;
 }
 .topnav {
     overflow: hidden;
@@ -76,4 +78,11 @@ body {
       border: 1px solid #ccc;  
     }
   }
+
+#peopleCarousel .carousel-caption{
+  color:black;
+}
+#peopleCarousel img {
+  margin-left: 80px;
+}
   
