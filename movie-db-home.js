@@ -3,10 +3,6 @@ var movieCarousel = document.getElementById("movieCarousel");
 var peopleCarousel = document.getElementById("peopleCarousel");
 var peopleCarIndex = true; 
 
-var movieResults = document.getElementById("movieResults");
-var peopleResults = document.getElementById("peopleResults");
-const apiKey = 'b6f68141a214aea8a4584e1ebb8927cb';     
-
 $(document).ready(function(){
     $('#btnSearch').click(function(){
         let txtSearch = document.querySelector('#txtSearch'); 

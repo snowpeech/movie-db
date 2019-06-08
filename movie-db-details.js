@@ -5,6 +5,7 @@ var profilePic = document.getElementById("profile-picture");
 var actorBio = document.getElementById("actor-bio")
 var tableHeader = document.getElementById("table-header");
 
+
 var actDetSet = {
     "async": true,
     "crossDomain": true,
@@ -40,15 +41,14 @@ var actCredSet = {
   }
   
 $.ajax(actCredSet).done(function (response) {
-    console.dir(response);
 
     for (let j=0; j < response.cast.length; j++){
         createRow(response, j);
     }
 });
 
+
 function createRow(response, index){
-    //console.log("object", object)
 
     var row = document.createElement("TR");
     var credType = response.cast[index].media_type;
@@ -59,7 +59,7 @@ function createRow(response, index){
         var credDate = response.cast[index].release_date;
 
         row.class = "movie"
-        row.innerHTML = `<td>${credTitle}</td>
+        row.innerHTML = `<td>Movie: </td> <td>${credTitle}</td>
         <td>${credRole}</td>
         <td>${credDate}</td>`;
     }
@@ -68,12 +68,12 @@ function createRow(response, index){
         var tvName = response.cast[index].name;
         var airDate = response.cast[index].first_air_date;
         row.class = "tv"
-        row.innerHTML = `<td>${tvName}</td>
+        row.innerHTML = `<td>TV Show: </td> <td>${tvName}</td>
         <td>${credRole}</td>
         <td>${airDate}</td>`
     }
     
-    tableHeader.appendChild(row);
+    acting.appendChild(row);
 }
 
 
