@@ -2,17 +2,6 @@ var movieResults = document.getElementById("movieResults");
 var peopleResults = document.getElementById("peopleResults");
 const apiKey = 'b6f68141a214aea8a4584e1ebb8927cb';     
 
-$(document).ready(function(){
-    $('#btnSearch').click(function(){
-        let txtSearch = document.querySelector('#txtSearch'); 
-        window.location.href = `file:///C:/Users/Lydia/projects/snowpeech.github.io/movie-db/search_results.html?search=${txtSearch.value}`;
-    })
-    getData();
-
-});
-
-
-
 function getUrlParameter(name) {
     name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
     var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
@@ -66,7 +55,7 @@ function createList(pic, name, desc,location){
     var list = document.createElement("DIV");
     list.classList = "list";
 
-    if(pic != null){
+    if(pic){
         list.innerHTML = `<div class = "movie-item">
     <img class="search-img" src="https://image.tmdb.org/t/p/w342/${pic}" alt="${name}">
     <div><b><u>${name}</u></b> ${desc}</div>
@@ -78,6 +67,5 @@ function createList(pic, name, desc,location){
     </div>`;    
     }
     
-
     location.appendChild(list);
 }

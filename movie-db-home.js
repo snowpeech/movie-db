@@ -8,7 +8,7 @@ $(document).ready(function(){
         let txtSearch = document.querySelector('#txtSearch'); 
         window.location.href = `file:///C:/Users/Lydia/projects/snowpeech.github.io/movie-db/search_results.html?search=${txtSearch.value}`;
     })
-    getData();
+    
 
     var settings = {
     "async": true,
@@ -84,11 +84,7 @@ function setActCarousel(id, title){
           <div class="carousel-caption d-md-block"><h5>${name}</h5><p>${character} in <br><i>${title}</i>x</p></div>
           </a>`;
           /////////////// add an actor class?
-    
-
-          
-
-
+              
           location.appendChild(pCarousel);
     }
 }

@@ -11,6 +11,16 @@
 	</head>
     
 	<body>
+        <script>
+            $(document).ready(function(){
+            $('#btnSearch').click(function(){
+                let txtSearch = document.querySelector('#txtSearch'); 
+                window.location.href = `file:///C:/Users/Lydia/projects/snowpeech.github.io/movie-db/search_results.html?search=${txtSearch.value}`;
+            })
+         getData();
+
+    });    
+        </script>
         <div class="topnav">
             <a class="active" href="file:///C:/Users/Lydia/projects/snowpeech.github.io/movie-db/index.html">Home</a>
             <a href="#about">About</a>
@@ -32,5 +42,8 @@
         <div id="peopleResults" class="card-group"></div>
 
 	</body>
-    <script src="./movie-db.js"></script>
+    <script src="./movie-db.js">
+    
+    
+    </script>
 </html>

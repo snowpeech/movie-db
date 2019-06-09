@@ -73,7 +73,7 @@ function createRow(response, index){
         <td>${airDate}</td>`
     }
     
-    acting.appendChild(row);
+    acting.insertAdjacentElement("afterend", row);
 }
 
 
