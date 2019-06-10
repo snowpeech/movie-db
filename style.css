@@ -19,7 +19,7 @@ table, tr {
   max-width:15%;
 }
 
-.card-text, .card-title {
+#moviecards .card-text, #moviecards .card-title {
   font-size: smaller;
   display:none;
 }

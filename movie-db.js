@@ -42,6 +42,7 @@ function getData(){
     
         $.ajax(settingsPpl).done(function (response) {
             for(var i=0; i<10; i++){
+                console.dir(response.results[i]);
                 var actId = response.results[i].id;
                 var actName = response.results[i].name;
                 var actDesc = "";
@@ -63,9 +64,44 @@ function createList(pic, name, desc,location){
     }
     else {
         list.innerHTML = `<div class = "movie-item">
+        <img class="search-img" src="icon.png" alt="${name}">
     <div><b><u>${name}</u></b> ${desc}</div>
     </div>`;    
     }
     
     location.appendChild(list);
+}
+
+function createCard(Id, name, pic, desc, location, type){
+    var card = document.createElement("DIV");
+    card.classList ="card";
+
+    switch(type){
+        case "movie":
+            card.innerHTML = `<a href="file:///C:/Users/Lydia/projects/snowpeech.github.io/movie-db/movie_details.html?id=${Id}">
+            <img class="card-img" src="https://image.tmdb.org/t/p/w342/${pic}" alt="${name}">
+            </a>`;
+            break;
+        
+        case "cast":
+            if(pic){
+                card.innerHTML = `<a href="file:///C:/Users/Lydia/projects/snowpeech.github.io/movie-db/actor_details.html?id=${Id}">
+                <img class="card-img" src="https://image.tmdb.org/t/p/w185/${pic}" alt="${name}">
+                <div class="card-img-overlay">
+                    <h5 class="card-title">${name}</h5>
+                    <p class="card-text">${desc}</p>    
+                </div> </a>`;    
+            }
+            else{
+                card.innerHTML = `<a href="file:///C:/Users/Lydia/projects/snowpeech.github.io/movie-db/actor_details.html?id=${Id}">
+            <img class="card-img" src="icon.png" alt="${name}">
+            <div class="card-img-overlay">
+                <h5 class="card-title">${name}</h5>
+                <p class="card-text">${desc}</p>    
+            </div> </a>`;
+            }
+            
+            break;
+    }
+    location.appendChild(card);
 }

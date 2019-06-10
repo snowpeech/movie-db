@@ -25,7 +25,7 @@ $(document).ready(function(){
             var movTitle = response.results[i].original_title;
             var movDesc = response.results[i].overview;
             var movPic = response.results[i].poster_path
-            createCard(movId, movTitle, movPic, movDesc);   
+            createCard(movId, movTitle, movPic, movDesc, movieCards,"movie");   
         }
     });
 
@@ -44,7 +44,7 @@ $(document).ready(function(){
             var upcomingMId = response.results[i].id;   
             var upcomingMTitle = response.results[i].original_title;
             var upcomingMPic = response.results[i].poster_path;
-            createCarousel(i, upcomingMPic, upcomingMTitle, movieCarousel);
+            createCarousel(i, upcomingMId, upcomingMPic, upcomingMTitle, movieCarousel);
             setActCarousel(upcomingMId,upcomingMTitle);
         }
       });
@@ -89,7 +89,7 @@ function setActCarousel(id, title){
     }
 }
 
-function createCarousel(index, pic, title, location){
+function createCarousel(index, id, pic, title, location){
     var carousel = document.createElement("DIV");
     if (index === 0){
         carousel.classList = "carousel-item active";    
@@ -97,7 +97,8 @@ function createCarousel(index, pic, title, location){
     else{
         carousel.classList = "carousel-item";
     }
-    carousel.innerHTML = `<img class="d-block w-100" src="https://image.tmdb.org/t/p/w780/${pic}" alt="${title}">`;
+    carousel.innerHTML = `<a href="file:///C:/Users/Lydia/projects/snowpeech.github.io/movie-db/movie_details.html?id=${id}">
+    <img class="d-block w-100" src="https://image.tmdb.org/t/p/w780/${pic}" alt="${title}"></a>`;
     /////////////// add a movie class?
     location.appendChild(carousel);
 
@@ -152,18 +153,7 @@ function getData(){
         });   
     }
 
-function createCard(Id, Title, Pic, Desc){
-    var card = document.createElement("DIV");
-    card.classList ="card";
-    card.innerHTML = `<a href = "https://www.themoviedb.org/movie/${Id}">
-    <img class="card-img" src="https://image.tmdb.org/t/p/w342/${Pic}" alt="${Title}">
-    <div class="card-img-overlay">
-        <h5 class="card-title">${Title}</h5>
-        <p class="card-text">${Desc}</p>    
-    </div> </a>`;
-    /////////////// add a movie class?
-    movieCards.appendChild(card);
-}
+
 
 function createList(pic, title, desc,location){
     var list = document.createElement("DIV");

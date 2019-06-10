@@ -21,24 +21,32 @@
             </div>
         </div>
 
-        <div class="page-body" id="actor-details">
+        <div class="page-body" id="movie-details">
             <div class="side-bar">
-                <h2 id="actor-name"></h2>
-                <img id="profile-picture" src="">
+                <a  id="movie-webpage"><h2 id="movie-name"></h2>
+                <img id="movie-poster" src=""></a>
+                Release Date: <div id="movie-date"></div>
+                
             </div>
             <div class = "main-content">
-                <h3>Biography</h3>    
-                <div id="actor-bio"></div>
-                <h3>Acting</h3>    
-                <div>
-                    <table>
-                        <tr id="acting"> <th>Title</th> <th>Role</th> <th>Release Date</th> </tr>
-                    </table>
+                <h3>Overview</h3>    
+                <div id="movie-overview"></div>
+
+                <h3>Cast</h3>
+                <div id="cast-cards" class="card-group"></div>
+
+                <h3>Crew</h3>
+                <div id = "crew-list"></div>
+             
+
+                <h3>Reviews</h3>    
+                <div id="movie-reviews">                        
+                    
                 </div>
                 
             </div>           
         </div>
 	</body>
     <script src="./movie-db.js"></script>
-    <script src="./movie-db-details.js"></script>
+    <script src="./movie-db-mdetails.js"></script>
 </html>
