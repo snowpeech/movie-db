@@ -86,22 +86,22 @@ function createCard(Id, name, pic, desc, location, type){
         case "cast":
             if(pic){
                 card.innerHTML = `<a href="file:///C:/Users/Lydia/projects/snowpeech.github.io/movie-db/actor_details.html?id=${Id}">
-                <img class="card-img" src="https://image.tmdb.org/t/p/w185/${pic}" alt="${name}">
-                <div class="card-img-overlay">
-                    <h5 class="card-title">${name}</h5>
-                    <p class="card-text">${desc}</p>    
-                </div> </a>`;    
+                <img class="card-img-top" src="https://image.tmdb.org/t/p/w185/${pic}" alt="${name}">
+                <div class="card-body">
+                    <h5 class="card-title">${name}</h5></a>
+                    <p class="card-text">as ${desc}</p>    
+                </div> `;    
             }
             else{
                 card.innerHTML = `<a href="file:///C:/Users/Lydia/projects/snowpeech.github.io/movie-db/actor_details.html?id=${Id}">
             <img class="card-img" src="icon.png" alt="${name}">
             <div class="card-img-overlay">
-                <h5 class="card-title">${name}</h5>
-                <p class="card-text">${desc}</p>    
-            </div> </a>`;
+                <h5 class="card-title">${name}</h5></a>
+                <p class="card-text">as ${desc}</p>    
+            </div> `;
             }
             
             break;
     }
     location.appendChild(card);
-}
+}   

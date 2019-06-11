@@ -98,8 +98,8 @@ function createCarousel(index, id, pic, title, location){
         carousel.classList = "carousel-item";
     }
     carousel.innerHTML = `<a href="file:///C:/Users/Lydia/projects/snowpeech.github.io/movie-db/movie_details.html?id=${id}">
-    <img class="d-block w-100" src="https://image.tmdb.org/t/p/w780/${pic}" alt="${title}"></a>`;
-    /////////////// add a movie class?
+    <img class="d-block w-75" src="https://image.tmdb.org/t/p/w780/${pic}" alt="${title}"></a>`;
+    
     location.appendChild(carousel);
 
 }
